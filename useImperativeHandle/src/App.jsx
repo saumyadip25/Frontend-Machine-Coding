@@ -5,7 +5,6 @@ import Outdoor from "./Outdoor";
 function App() {
   let outdoorRef = useRef(null);
 
-  // wrapper function that safely calls addOutdoor if available
   const moveIndoorToOutdoor = (item) => {
     outdoorRef.current?.addOutdoor(item);
   };

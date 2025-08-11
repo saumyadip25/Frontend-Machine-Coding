@@ -1,0 +1,19 @@
+.dropdown {
+  max-height: 400px;
+  overflow: auto;
+  border: 1px solid black;
+}
+
+.option {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.option:hover {
+  background: #f0f0f0;
+}
+
+.option:last-child {
+  border-bottom: none;
+}
