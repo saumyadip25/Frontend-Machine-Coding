@@ -1,12 +1,49 @@
-# React + Vite
+# useImperativeHandle Hook Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application demonstrating the `useImperativeHandle` hook with a practical example of moving items between Indoor and Outdoor activity lists.
 
-Currently, two official plugins are available:
+## What is useImperativeHandle?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+• **Purpose**: Exposes specific functions from a child component to its parent
+• **Use Case**: When parent needs to call child component methods directly
+• **Requirement**: Must be used with `forwardRef` to receive the ref from parent
 
-## Expanding the ESLint configuration
+## Code Implementation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Key Components:
+• **App.jsx**: Parent component that holds reference to Outdoor component
+• **Indoor.jsx**: Child component with clickable items that move to outdoor list
+• **Outdoor.jsx**: Child component using `useImperativeHandle` to expose `addOutdoor` method
+
+### useImperativeHandle Usage:
+```javascript
+useImperativeHandle(
+  ref,
+  () => {
+    return {
+      addOutdoor: addOutdoor,
+    };
+  },
+  []
+);
+```
+
+## How It Works
+
+• Parent creates a ref using `useRef()` (`outdoorRef` in App.jsx:6)
+• Child component wrapped with `forwardRef` to receive the ref (Outdoor.jsx:3)
+• `useImperativeHandle` exposes specific methods to parent (Outdoor.jsx:10-18)
+• Parent calls child methods via `outdoorRef.current.addOutdoor()` (App.jsx:9)
+
+## Demo Features
+
+• Click indoor activities (Chess, Ludo, Catan) to move them to outdoor list
+• Items are removed from indoor list and added to outdoor list
+• Demonstrates parent-child communication through imperative handle
+
+## Running the Project
+
+```bash
+npm install
+npm run dev
+```
