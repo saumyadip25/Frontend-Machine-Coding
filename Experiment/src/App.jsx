@@ -1,24 +1,12 @@
-import { useRef, forwardRef } from "react";
+import { useState } from "react";
+import Parent from "./Parent";
+import withLoading from "./withLoading";
 
-const ChildComponent = forwardRef((props, ref) => {
-  return <input ref={ref} {...props} />;
-});
-
-function App() {
-  const inputRef = useRef(null);
-
+export default function App() {
+  const HOC = withLoading(Parent);
   return (
     <div>
-      <button
-        onClick={() => {
-          console.log(inputRef.current?.value);
-        }}
-      >
-        Click me
-      </button>
-      <ChildComponent ref={inputRef} />
+      <HOC />
     </div>
   );
 }
-
-export default App;
