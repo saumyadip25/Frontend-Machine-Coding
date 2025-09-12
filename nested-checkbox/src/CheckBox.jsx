@@ -65,7 +65,6 @@ const CheckBox = (props) => {
             <CheckBox
               key={child.id}
               data={child}
-              //   handleToggleChange={handleToggleChange}
               check={check}
               setCheck={setCheck}
               root={root}
