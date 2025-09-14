@@ -1,12 +1,21 @@
-import { useState } from "react";
-import Parent from "./Parent";
-import withLoading from "./withLoading";
+import Toggle from "./Toggle";
 
-export default function App() {
-  const HOC = withLoading(Parent);
+const App = () => {
   return (
     <div>
-      <HOC />
+      <Toggle
+        render={(toggle, handleToggle) => {
+          return (
+            <div>
+              {toggle && <div> toggle is on </div>}
+              {!toggle && <div> toggle is off </div>}
+              <button onClick={handleToggle}>Click</button>
+            </div>
+          );
+        }}
+      />
     </div>
   );
-}
+};
+
+export default App;
