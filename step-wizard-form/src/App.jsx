@@ -1,4 +1,3 @@
-// App.js
 import { useState } from "react";
 import Stepper from "./Stepper";
 import Personal from "./Personal";
@@ -26,7 +25,6 @@ function App() {
       [section]: { ...prev[section], [field]: value },
     }));
 
-    // validation logic
     if (section === "personal" && field === "name") {
       setErrors((prev) => ({
         ...prev,

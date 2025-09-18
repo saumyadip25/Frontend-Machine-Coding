@@ -1,6 +1,3 @@
-// Confirm.js
-import React from "react";
-
 const Confirm = ({ personal, company }) => {
   const renderRow = (label, value) => (
     <div

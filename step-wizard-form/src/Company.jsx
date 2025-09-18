@@ -1,6 +1,3 @@
-// Company.js
-import React from "react";
-
 const Company = ({ formData, errors, handleChange }) => {
   return (
     <form>

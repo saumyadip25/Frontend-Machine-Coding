@@ -1,6 +1,3 @@
-// Personal.js
-import React from "react";
-
 const Personal = ({ formData, errors, handleChange }) => {
   return (
     <form>
