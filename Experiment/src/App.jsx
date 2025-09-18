@@ -1,34 +1,24 @@
-import { useState, useTransition } from "react";
+import { useState } from "react";
 
 function App() {
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
-  const [isPending, startTransition] = useTransition();
-
-  const bigList = Array.from({ length: 10000 }, (_, i) => "Item " + i);
+  const [inputVal, setInputVal] = useState("");
+  const [debounced, setDebounced] = useState("");
 
   const handleChange = (e) => {
-    const val = e.target.value;
-    setQuery(val);
+    const value = e.target.value;
+    setInputVal(e.target.value);
 
-    // Mark heavy update as a transition
-    startTransition(() => {
-      const filtered = bigList.filter((item) =>
-        item.toLowerCase().includes(val.toLowerCase())
-      );
-      setResults(filtered);
-    });
+    setTimeout(() => {
+      setDebounced(e.target.value);
+      console.log("e.target.value ", e.target.value);
+      console.log("value ", value);
+    }, 2000);
   };
 
   return (
     <div>
-      <input value={query} onChange={handleChange} placeholder="Search..." />
-      {isPending && <p>Loading...</p>}
-      <ul>
-        {results.map((r, i) => (
-          <li key={i}>{r}</li>
-        ))}
-      </ul>
+      <input value={inputVal} onChange={handleChange} />
+      <input value={debounced} readOnly />
     </div>
   );
 }
