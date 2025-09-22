@@ -1,0 +1,12 @@
+.tab-container {
+  width: 280px;
+  background: white;
+}
+
+button {
+  width: 140px;
+}
+
+.active {
+  background-color: #007bff;
+}

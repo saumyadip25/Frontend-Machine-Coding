@@ -1,0 +1,15 @@
+.container {
+  height: 30px;
+  min-width: 50px;
+  border-radius: 15px;
+  width: fit-content;
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  border: solid 1px black;
+  background-color: white;
+}
+
+.active {
+  background-color: aqua;
+}
