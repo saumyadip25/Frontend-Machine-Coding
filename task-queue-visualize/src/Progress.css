@@ -1,0 +1,16 @@
+.container {
+  height: 20px;
+  width: 200px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: solid 1px black;
+}
+
+.content {
+  background-color: green;
+  height: 100%;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.1s ease-out;
+}
