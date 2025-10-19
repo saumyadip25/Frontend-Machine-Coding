@@ -57,8 +57,6 @@ function App() {
             // Mark as completed
             newTasks[i] = { ...task, status: "completed" };
           } else if (task.status === "inprogress") {
-            // Calculating increment based on execution time
-            // increment = (TIME_DELAY / executionTime) * 100
             const increment = (TIME_DELAY / task.executionTime) * 100;
             const newWidth = Math.min(task.width + increment, 100);
 
@@ -67,7 +65,6 @@ function App() {
               width: newWidth,
             };
           } else if (task.status === "pending") {
-            // Check if we can start this task
             if (runningCount + slotsUsed < CONCURRENCY) {
               const increment = (TIME_DELAY / task.executionTime) * 100;
               newTasks[i] = {
